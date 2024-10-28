@@ -28,11 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
     async function fetchWeatherData(city) {
         //gets the data
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`;
-
         const response = await fetch(url);
-        console.log(typeof response);
-        console.log("RESPONSE", response);
-
+  
         if (!response.ok) {
             throw new Error(" City Not found");
         }
@@ -41,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function displayWeatherData(data) {
-        console.log(data);
+     
         const { name, main, weather } = data;
         cityNameDisplay.textContent = name;
         temperatureDisplay.textContent = `Temperature : ${main.temp}°C`;
